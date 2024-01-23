@@ -1,10 +1,6 @@
-// import { useAuth } from '../utils/context/authContext';
+import React from 'react';
 
-import Team from './team';
-
-function Home() {
-  // const { user } = useAuth();
-
+export default function New() {
   return (
     <div
       className="text-center d-flex flex-column justify-content-center align-content-center"
@@ -15,11 +11,7 @@ function Home() {
         margin: '0 auto',
       }}
     >
-      <h1>~ The Moving Castle Crew ~
-      </h1>
-      <Team />
+      <h1>Add a Member </h1>
     </div>
   );
 }
-
-export default Home;
