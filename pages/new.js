@@ -1,6 +1,7 @@
 import React from 'react';
+import MemberForm from '../components/forms/MemberForm';
 
-export default function New() {
+export default function AddMember() {
   return (
     <div
       className="text-center d-flex flex-column justify-content-center align-content-center"
@@ -11,7 +12,7 @@ export default function New() {
         margin: '0 auto',
       }}
     >
-      <h1>Add a Member </h1>
+      <MemberForm />
     </div>
   );
 }
