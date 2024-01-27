@@ -13,13 +13,10 @@ const initialState = {
 
 function MemberForm({ obj }) {
   const [formInput, setFormInput] = useState(initialState);
-  //   const [members, setMembers] = useState([]);
   const router = useRouter();
   const { user } = useAuth();
 
   useEffect(() => {
-    // getMembers(user.uid).then(setMembers);
-
     if (obj.firebaseKey) setFormInput(obj);
   }, [obj, user]);
 
