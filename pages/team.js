@@ -7,10 +7,14 @@ function Team() {
   const [members, setMembers] = useState([]);
   const { user } = useAuth();
 
-  useEffect(() => {
+  const reloadMembers = () => {
     getMembers(user.uid).then((data) => {
       setMembers(data);
     });
+  };
+
+  useEffect(() => {
+    reloadMembers();
   }, []);
 
   return (
@@ -22,7 +26,7 @@ function Team() {
       </h1>
       <div className="d-flex flex-wrap">
         {members.map((member) => (
-          <MemberCard key={member.name} memberObj={member} onUpdate={getMembers} />
+          <MemberCard key={member.name} memberObj={member} onUpdate={reloadMembers} />
         ))}
       </div>
     </div>

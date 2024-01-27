@@ -6,7 +6,7 @@ import Link from 'next/link';
 import { deleteMember } from '../api/memberData';
 
 function MemberCard({ memberObj, onUpdate }) {
-  const deleteThismember = () => {
+  const deleteThisMember = () => {
     if (window.confirm(`Delete ${memberObj.name}?`)) {
       deleteMember(memberObj.firebaseKey).then(() => onUpdate());
     }
@@ -21,7 +21,7 @@ function MemberCard({ memberObj, onUpdate }) {
         <Link href={`/members/edit/${memberObj.firebaseKey}`} passHref>
           <Button variant="info">EDIT</Button>
         </Link>
-        <Button variant="danger" onClick={deleteThismember} className="m-2">
+        <Button variant="danger" onClick={deleteThisMember} className="m-2">
           DELETE
         </Button>
       </Card.Body>
