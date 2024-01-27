@@ -1,22 +1,16 @@
+// import { useEffect, useState } from 'react';
 // import { useAuth } from '../utils/context/authContext';
-
+// import { getMembers } from '../api/memberData';
 import Team from './team';
+// import MemberCard from '../components/MemberCard';
 
 function Home() {
-  // const { user } = useAuth();
-
   return (
     <div
-      className="text-center d-flex flex-column justify-content-center align-content-center"
-      style={{
-        height: '90vh',
-        padding: '30px',
-        maxWidth: '400px',
-        margin: '0 auto',
-      }}
+      className="text-center my-4"
+
     >
-      <h1>~ The Moving Castle Crew ~
-      </h1>
+
       <Team />
     </div>
   );
