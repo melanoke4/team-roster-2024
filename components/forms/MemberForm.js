@@ -13,13 +13,10 @@ const initialState = {
 
 function MemberForm({ obj }) {
   const [formInput, setFormInput] = useState(initialState);
-  //   const [members, setMembers] = useState([]);
   const router = useRouter();
   const { user } = useAuth();
 
   useEffect(() => {
-    // getMembers(user.uid).then(setMembers);
-
     if (obj.firebaseKey) setFormInput(obj);
   }, [obj, user]);
 
@@ -34,7 +31,7 @@ function MemberForm({ obj }) {
   const handleSubmit = (e) => {
     e.preventDefault();
     if (obj.firebaseKey) {
-      updateMember(formInput).then(() => router.push(`/team/${obj.firebaseKey}`));
+      updateMember(formInput).then(() => router.push('/team'));
     } else {
       const payload = { ...formInput, uid: user.uid };
       createMember(payload).then(({ name }) => {

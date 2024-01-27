@@ -4,11 +4,8 @@ import Button from 'react-bootstrap/Button';
 import Card from 'react-bootstrap/Card';
 import Link from 'next/link';
 import { deleteMember } from '../api/memberData';
-// import { deletemember } from '../api/memberData';
 
 function MemberCard({ memberObj, onUpdate }) {
-//   FOR DELETE, WE NEED TO REMOVE THE member AND HAVE THE VIEW RERENDER,
-//   SO WE PASS THE FUNCTION FROM THE PARENT THAT GETS THE memberS
   const deleteThismember = () => {
     if (window.confirm(`Delete ${memberObj.name}?`)) {
       deleteMember(memberObj.firebaseKey).then(() => onUpdate());
@@ -21,12 +18,7 @@ function MemberCard({ memberObj, onUpdate }) {
       <Card.Body>
         <Card.Title>{memberObj.name}</Card.Title>
         <Card.Title>{memberObj.role}</Card.Title>
-        {/* DYNAMIC LINK TO VIEW THE member DETAILS  */}
-        <Link href={`/member/${memberObj.firebaseKey}`} passHref>
-          <Button variant="primary" className="m-2">VIEW</Button>
-        </Link>
-        {/* DYNAMIC LINK TO EDIT THE member DETAILS  */}
-        <Link href={`/member/edit/${memberObj.firebaseKey}`} passHref>
+        <Link href={`/members/edit/${memberObj.firebaseKey}`} passHref>
           <Button variant="info">EDIT</Button>
         </Link>
         <Button variant="danger" onClick={deleteThismember} className="m-2">
